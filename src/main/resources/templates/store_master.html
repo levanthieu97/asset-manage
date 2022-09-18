@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>店舗マスタ管理</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript"  th:src="@{/js/store_master.js}" src="../static/js/store_master.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/store_master.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+
+</head>
+<body>
+<!-- ==ヘッダー=================================================================================================== -->
+	<div id = 'header'>
+		<br><h1>&nbsp;店舗マスタ管理</h1>
+		<div align = 'right'>
+			[[${departmentName}]]&nbsp;[[${displayName}]]
+			<br><a th:href="@{/login?logout}">ログアウト</a><br><br>
+		</div>
+	</div>
+	<div class='box' id='list_div'>
+	  <ul id='list_ul'>
+		<table>
+	 	  <tr th:each="model : ${modelList}" th:object="${model}" th:id="*{tenpoCode}">
+	 	    <th:block th:switch="*{typeId}" th:case="0" >
+	 	      <td><button class='edit' th:value="*{tenpoCode}">編集</button></td>
+              <td class="tenpoCode" th:text="*{tenpoCode}"></td>
+              <td class= "name" th:text="*{name}"></td>
+	 	    </th:block>
+          </tr>
+		</table>
+	  </ul>
+	</div>
+	<div  class='box' id='edit_div'>
+	<form method='post' name='input_form' >
+	 	<table>
+	 		<tr><td>店舗コード</td><td><input type='text' name='tenpo_code' id='tenpo_code' maxlength="6" ></td><td>※6桁まで</td></tr>
+			<tr><td>名前</td><td><input type='text' name='name_value' id='name_value' maxlength="40"></td><td>※40文字まで</td></tr>
+			<tr><td><button id='delete' disabled>削除</button></td></tr>
+			<tr><td><button id='insert_update'>登録・更新</button></td></tr>
+		</table>
+			<div><input type='hidden' name='edit_type' id='edit_type' value=''></input></div>
+	</form>
+		<div><button id='clear'>クリア</button></div>
+	</div>
+	<form method='post' >
+	<div><input type = 'submit' class = 'menu_btn' name = 'menu_btn'  value = 'メニューに戻る' th:onClick="action='index'; true"></div>
+	</form>
+</body>
+</html>

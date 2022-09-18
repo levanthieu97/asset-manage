@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>検索画面＜資産＞</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript" src="javascript/asset_manage.js"></script>
+<script type="text/javascript" src="javascript/asset_manage_detail.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/asset_manage_display.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+<link rel="shortcut icon" th:href="@{/img/資産.ico}">
+</head>
+<body>
+<!-- =============================================================================================================================== -->
+	<div id = 'header'>
+		<br><h1>資産管理ツール＜詳細画面＞</h1>
+		<div align = 'right'>
+			[[${departmentName}]]&nbsp;[[${displayName}]]
+			<br><a th:href="@{/login?logout}"">ログアウト</a><br><br>
+		</div>
+	</div>
+	<div id = 'background'>
+		<div id = 'input_form'>
+			<h1 class='info_title'>[[${display_manage_no}]]の詳細</h1>
+			<table class='info_title'  id='entry_date_user'>
+				<tr>
+					<td id='entry_date'>[登録日： [[${entry_date}]] ]</td>
+					<td id='entry_user'>[登録者： [[${entry_date}]] ]</td>
+					<td>
+						
+						<button class='change' id='window_close' style='background-color:#ffa3a3' onClick="quitBox('quit');" value='close'>閉じる</button>
+					</td>
+				</tr>
+			</table>
+			<div id='display_area'>
+				<ul>
+					[[${detail_display}]]
+					[[${error_msg}]] 
+				</ul>
+				<div id= 'install_software_info_area'>
+					<div id= 'install_software_title_area'>
+						<table>
+							<tr>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id='scroll_install_software_area'>
+					<form method='get'>
+						<table>
+							<tr>
+								<td>
+								</td>
+							</tr>
+						</table>
+					</form>
+					</div>
+				</div>
+			</div>
+			<div id='log_display_area'>
+				<div id='log_title_area'>
+					<table>
+						<col style='width: 10%;' />
+						<tr><td class='log_title'>◆更新履歴予定◆</td></tr>
+						<!--  <col style='width: 20%;' /> -->
+<!-- 						<tr><td class='log_title' colspan='2'>◆更新履歴◆</td></tr> -->
+						<!-- <tr><td  class='log_title'>【対象項目名】</td><td  class='log_title'>【更新内容】</td></tr> -->
+					</table>
+				</div>
+				<div id='scroll_log_area'>
+					<table>
+						[[${log_contents_col}]]
+						[[${log_contents}]] 
+					</table>
+				</div>
+			</div>
+			<div id='edit_move_btn_area' align='right'>
+			<form method='post'>
+				<table>
+					<tr>
+					<td><input type='submit' id='edit_page_btn' name='edit_page_btn' th:onClick="action='asset_manage_edit'; retrun:true" value='編集画面へ'></td>
+					<td><input type='hidden' name='edit_category' class='edit' id='edit_category' value="${category}"></td>
+					<td><input type='hidden' name='edit_manage_no' class='edit' id='edit_manage_no'  value="${manage_no}"></td>
+					</tr>
+				</table>
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

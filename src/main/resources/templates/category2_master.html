@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>分類2マスタ管理</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript"  th:src="@{js/category2_master.js}" src="../static/js/category2_master.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/category2_master.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+
+</head>
+<body>
+<!-- ==ヘッダー=================================================================================================== -->
+	<div id = 'header'>
+		<br><h1>&nbsp;分類2マスタ管理</h1>
+		<div align = 'right'>
+			[[${departmentName}]]&nbsp;[[${displayName}]]
+			<br><a th:href="@{/login?logout}">ログアウト</a><br><br>
+		</div>
+	</div>
+	<div class='box' id='list_div'>
+	<ul id='list_ul'>
+	
+	<li th:each="ob : ${modelList}" th:object="${ob}" th:id="*{id}">
+	<label class='edit_btn'><button class='edit' th:value="*{id}">編集</button></label>	
+	<label class='id' >[[*{id}]]</label>	
+	<label class='c1_name'><input type='hidden' class='c1_class' th:text=" '【' + *{category1MasterModel.name} + '】' "  th:value="*{category1Class}"></input></label>	
+	<label class='c2_name'>[[*{name}]]<input type='hidden' class='c2_use' value=''></input></label>	
+	</li>
+	
+	</ul>
+	</div>
+	<div  class='box' id='edit_div'>
+	<form method='post' name='input_form' >
+	 	<table>
+	 		<tr><td>ID</td><td><input type='text' name='id' id='id' readonly></td><td>※入力不可</td></tr>
+	 		<tr><td>分類1</td>
+	 			<td>
+	 				<select id='cate1_select' name='cate1'>
+	 				<option value='default' hidden='hidden'>分類1を選択してください</option>
+	 		  		<option th:each="model : ${model1List}" th:value="${model.value}" th:text="${model.name}"></option> 		
+	 			    </select>
+	 		    </td></tr>
+			<tr><td>名前</td><td><input type='text' name='name_value' id='name_value' maxlength="15"></td><td>※15文字まで</td></tr>
+			<tr><td><button id='delete' disabled>削除</button></td></tr>
+			<tr><td><button id='insert_update'>登録・更新</button></td></tr>
+		</table>
+			<div><input type='hidden' name='edit_type' id='edit_type' value='insert'></input></div>
+			<div><input type='hidden' name='c2_use' id='c2_use' value=''></input></div>
+	</form>
+		<div><button id='clear'>クリア</button></div>
+	</div>
+	<form method='post' >
+	<div><input type = 'submit' class = 'menu_btn' name = 'menu_btn'  value = 'メニューに戻る' th:onClick="action='index'; true"></div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,13 @@
+	.link{
+		font-size:30px;
+	}
+	
+	.caution{
+		color:#FF0000;
+		font-weight:bold;
+		font-size:25px;
+	}
+		
+	.link_div{
+		margin-bottom : 50px;
+	}

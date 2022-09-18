@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>資産管理＜編集＞</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript" src="javascript/asset_manage.js"></script>
+<script type="text/javascript" src="javascript/asset_manage_control_check.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/asset_manage_display.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+<link rel="shortcut icon" th:href="@{/img/資産.ico}">
+</head>
+<body>
+<!-- ========================================================================================================== -->
+	<div id = 'header'>
+		<br><h1>&nbsp;資産管理ツール＜編集画面＞</h1>
+		<div align = 'right'>
+			[[${departmentName}]]&nbsp;[[${displayName}]]
+			<br><a th:href="@{/login?logout}"">ログアウト</a><br><br>
+		</div>
+	</div>
+	<div id = 'background'>
+		<div id = 'input_form'>
+		<form method='post' name='input_form' >
+			<table class='info_title 'id = 'select_category'>
+				<tr>
+					<td>分類：
+						<select name='select_category1' id='select_category1'>
+							[[${category1_options}]]
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table class='info_title' id='window_close_area'>
+				<tr>
+					<td>
+						<button class='change' id='window_close' style='background-color:#ffa3a3' onClick=" quitBox('quit');" value='close'>閉じる</button>
+					</td>
+				</tr>
+			</table>
+			<ul>
+				[[${detail_display}]]
+			</ul>
+			<div id = 'edit_btn_area' align='right'>
+				<table>
+					<tr>
+						<td><input type='submit' id='update_btn' name='update_btn'  value='更新' th:onClick='entryCheck(this)'></td>
+						<td><input type='submit' id='modify_btn' name='modify_btn'  value='修正' th:onClick='entryCheck(this)'></td>
+						<td><input type='hidden' name='id' value="${cAssetManageItem}"></td>
+						<td><input type='hidden' name='asset_id' value="${cAssetManageItem}"></td>
+						<td><input type='hidden' name='mode' id='mode' value="${mode}"></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

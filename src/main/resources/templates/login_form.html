@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<link rel="shortcut icon" type="image/ico" th:href="@{/img/資産.ico}">	
+</head>
+
+	<body onload="document.login_form.login_user.focus();">
+	<body bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink="#ff0000">
+	<div id = 'login'>
+	<h2>資産管理ツール - ログイン</h2>
+	<!-- <h2>資産管理ツール(テスト) - ログイン</h2> -->
+	Microsoft Active Directoryのユーザ名とパスワードを入力してログインしてください。<br>
+	社内の自パソコンにログインしているIDとパスワードになります。<br>
+	<br>
+	
+	<b><font color="#ff0000"> [[${login_errmsg}]] </font></b>
+	<form th:action="@{/index}" th:object="${user}" method="post">
+	
+	<table >
+	<tr>
+		<td style="font-size:10pt;color:#000000;background-color:#00ffff">ユーザ名</td>
+		<td style="font-size:10pt;color:#000000;background-color:#ffffff"><input type="text" th:field="*{userName}"></td>
+	</tr>
+	<tr>
+		<td style="font-size:10pt;color:#000000;background-color:#00ffff">パスワード</td>
+		<td style="font-size:10pt;color:#000000;background-color:#ffffff"><input type="password" th:field="*{password}"></td>
+	</tr>
+	</table>
+	<br>
+	<input type="submit" name="login" style="WIDTH: 300px; HEIGHT: 40px" value="ログイン">
+	<!-- <p><font color='red'><b>※Internet Explorer及び、Microsoft Edge には現在対応しておりません</b></font></p> -->
+	</form>
+	</div>
+	</body>
+</html>

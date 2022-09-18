@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<link rel="shortcut icon" type="image/ico" th:href="@{/img/資産.ico}">
+	<link rel="stylesheet" th:href="@{/css/index.css}">
+	
+	</head>
+	<body>
+	<div id = "menu">
+	<h1>&nbsp;資産管理ツール＜メニュー画面＞</h1>
+	<div align="right">
+		[[${departmentName}]]&nbsp;[[${displayName}]]
+		<br><a th:href="@{/login?logout}">ログアウト</a>
+	</div>
+	<div class='link_div'><a class='link' href="asset_manage_search">【資産管理】</a></div>
+	<div class='link_div'><a class='link' href="category2_master">【分類2マスタ管理】</a></div>
+	<div class='link_div'><a class='link' href="set_place_master">【設置場所マスタ管理】</a></div>
+	<div class='link_div'><a class='link' href="store_master">【店舗マスタ管理】</a></div>
+	<div class='link_div'><a class='link' href="department_master">【部署マスタ管理】</a></div>
+	<table>
+		<tr>
+			<td>
+			<form name = "return_limit_display" action = "asset_rental_search.php" id = "return_limit_display" method = "post">
+			<a class='caution' href="javascript:document.return_limit_display.submit();">[[${return_limit_msg}]]</a>
+			</form>
+			</td>
+		</tr>
+	</table>
+	</div>
+	</body>
+	</html>

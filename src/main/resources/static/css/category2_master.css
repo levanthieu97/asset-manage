@@ -1,0 +1,50 @@
+.box{
+	margin-left : 30px;
+	margin-bottom : 100px;
+}
+
+#list_ul{
+	height:500px;
+}
+
+li{
+	width : 430px;
+	height :  32px;
+	display: inline-block;
+}
+
+.id{
+	display:block;
+	float:left;
+	width : 20px;
+	padding-top: 5px;
+}
+
+.c1_name{
+	display:block;
+	float:left;
+	width : 140px;
+	padding-top: 5px;
+	
+}
+
+.c2_name{
+	display:block;
+	float:left;
+	width : 210px;
+	padding-top: 5px;
+}
+
+.edit_btn{
+	display:block;
+	float:left;
+	width : 50px;
+}
+
+#id{
+	width:80px;
+}
+
+#name_value{
+	width:200px;
+}

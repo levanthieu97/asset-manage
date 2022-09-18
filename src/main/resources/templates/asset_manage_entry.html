@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>資産管理＜登録＞</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<script type="text/javascript" src="javascript/asset_manage.js"></script>
+<script type="text/javascript" src="javascript/asset_manage_entry.js"></script>
+<script type="text/javascript" src="javascript/asset_manage_control_check.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/asset_manage_display.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+<link rel="shortcut icon" th:href="@{/img/資産.ico}">
+</head>
+<body>
+<!-- ========================================================================================================== -->
+	<div id = 'header'>
+		<br><h1>&nbsp;資産管理ツール＜登録画面＞</h1>
+		<div align = 'right'>
+			[[${departmentName}]]&nbsp;[[${displayName}]]
+			<br><a th:href="@{/login?logout}">ログアウト</a><br><br>
+		</div>
+
+	</div>
+	<div>
+		　　<a th:href="@{/asset_manage_search}">検索メニューに戻る</a>
+	</div>
+	<div id = 'background'>
+		<div id = 'input_form'>
+		<form method='post' name='input_form' >
+			<table id = 'select_category'>
+				<tr>
+					<td><b>分類：</b>
+						<select name='select_category1' id='select_category1' onchange="display_reset();">
+							<option value = ""></option>
+							[[${category1_options}]]
+						</select>
+					</td>
+					<td>
+						<input type='submit' name='category_select_btn' th:onClick="action='asset_manage_entry'; retrun:true" value='で新規登録'>
+					</td>
+				</tr>
+				<tr>
+					<td colspan='2'>
+						[[${error_msg}]]
+				</tr>
+			</table>
+			<div id='entry_form_display'>
+				<ul>
+					[[${detail_display}]]
+				</ul>
+			</div>
+			<div align='right'  id = 'btn_area' >
+			<ul>
+				[[${entry_btn}]]
+				[[${hidden_data}]]
+		
+			</ul>
+			</div>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.department-container {
+	display: block;
+	margin: 30px auto;
+	width: 1280px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 50px;
+}
+
+.header .title {
+	margin: 0;
+}
+
+.content-wrapper {
+	position: relative;	
+}
+
+.content-wrapper .flex-row {
+	width: 100%;
+	display: flex;
+	gap: 15px;
+}
+
+.main .flex-row {
+	margin-top: 10px;
+}
+
+.flex-row .selection {
+	width: 80px;
+}
+
+button.selection {
+	cursor: pointer;
+}
+
+.flex-row .department-id {
+	width: fit-content;
+	min-width: 30px;
+	display: grid;
+	align-items: center;
+}
+
+.flex-row .department-name {
+	display: grid;
+	align-items: center;	
+}
+
+.department-detail {
+	margin-top: 30px;
+}
+
+.main-form, .row-btn {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.main-form label {
+	width: 90px;
+	display: inline-block;
+}
+
+.row-btn .btn-form {
+	width: 80px;
+	text-align: center;
+	cursor: pointer;
+}
+

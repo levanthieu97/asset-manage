@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>部署マスタ管理</title>
+<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery.ui.datepicker-ja.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/department_master.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/css_reset.css}">
+
+</head>
+<body>
+<!-- ==ヘッダー=================================================================================================== -->
+	<div class="department-container">
+		<div class="header">
+			<h1 class="title">&nbsp;部署マスタ管理</h1>
+			<div>
+				[[${departmentName}]]&nbsp;[[${displayName}]]
+				<a th:href="@{/login?logout}">ログアウト</a>
+			</div>
+		</div>
+		<div class="department-content">
+			<div class="content-wrapper">
+				<div class="content-header flex-row">
+					<div class="item-td selection"></div>
+					<div class="item-td department-id">Id</div>
+					<div class="item-td department-name">Department name</div>
+				</div>
+				<div class="main">
+					<!-- Department Data -->
+				</div>
+			</div>
+		</div>
+		<div class="department-detail">
+			<div class="department-form">
+				<form class="main-form">
+					<div class="field-input">
+						<label for="departmentId">id:</label>
+						<input type="text" class="departmentId" name="departmentId" disabled/>
+					</div>
+					<div class="field-input">
+						<label for="departmentName">department:</label>
+						<input type="text" class="departmentName" name="departmentName" />
+					</div>
+					<div class="row-btn">
+						<button id="delete" class="btn-form">Delete</button>
+						<button id="add-edit" class="btn-form">Add - Edit</button>
+						<button id="clear" class="btn-form">Clear</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript"  th:src="@{/js/department_master.js}"></script> 
+</html>

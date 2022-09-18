@@ -1,0 +1,313 @@
+@CHARSET "UTF-8";
+
+/*=============================================date-picker===========================================================*/
+	.class-sunday > .ui-state-default {
+		background: #FFCCCC !important;
+		color: red !important;
+	}
+	.class-saturday > .ui-state-default {
+		background: #CCCCFF !important;
+		color: blue !important;
+	}
+
+	.class-weekday > .ui-state-default {
+		color: black !important;
+	}
+/*===================================================全体=============================================================*/
+	body{
+	background-color: #ccffff;
+	}
+
+/*====================================================ヘッダー========================================================*/
+	.link{font-size:30px}
+
+	#header{
+		height:140px;
+	}
+
+	.caution{
+		color:#FF0000;
+		font-weight:bold;
+	}
+
+/*====================================================表示領域====================================================*/
+	#entry_date_user{
+		float:right;
+	}
+
+	#window_close_area{
+		float:right;
+	}
+
+	#window_close{
+		margin-left:20px;
+		width:auto;
+		height:50px;
+		font-size:20px;
+		font-weight:bold;
+		margin-right:10px;
+	}
+
+	#detail_background{
+		background-color:#EEEEEE;
+		width:auto;
+		height:auto;
+		margin:20px;
+		padding:10px;
+		border: 10px #999999 ridge;
+		display:inline-block;
+	}
+
+	.info_title{
+		display:inline-block;
+	}
+
+	#display_area{
+		background-color:#DDDDDD;
+		border:2px solid #333333;
+		margin-top:10px;
+		margin-bottom:10px;
+		padding-bottom:10px;
+	}
+
+	#detail_info label{
+		vertical-align: top;
+		float:left;
+		width:160px;
+	}
+
+	#detail_info li{
+		padding-top:10px;
+		padding-right:10px;
+		padding-left:10px;
+		margin-top:10px;
+		margin-right:5px;
+		margin-left:5px;
+		white-space: nowrap;
+		display: inline-block;
+	}
+
+	#detail_info input{
+		text-align:center;
+		border:2px #999999 double;
+	}
+
+	#menu_btn{
+		float:right;
+	}
+
+	.note{
+		width:45%;
+	}
+
+	#note{
+		width:80%;
+		height:100px;
+	}
+
+	.normal{
+		width:345px;
+	}
+
+	.normal_input{
+	width:200px;
+	}
+
+	#ticket_link{
+		background-color:white;
+		margin-left:189px;
+		width:200px;
+		height:20px;
+		border:1px solid #AAAAAA;
+		vertical-align:center;
+	}
+
+	#license{
+		width:240px;
+	}
+
+	#input_form li{
+		padding-top:10px;
+		margin-top:10px;
+		margin-left:53px;
+		margin-right:53px;
+		white-space: nowrap;
+		display:inline-block;
+	}
+
+	#input_form label{
+		width:180px;
+		float:left;
+		background-color:#BBBBBB;
+		margin-right:2px;
+		padding:3px;
+	}
+
+	#input_form input{
+		text-align:center;
+	}
+
+	#select_category{
+		width:auto;
+		height:20px;
+		padding:10px;
+		background-color:#AAAAAA;
+	}
+
+	#background{
+		background-color:#EEEEEE;
+		width:auto;
+		height:auto;
+		margin:10px;
+		padding:10px;
+		border: 10px #999999 ridge;
+	}
+
+	#edit_btn_area{
+		margin-top:20px;
+	}
+
+	#edit_move_btn_area{
+		display:inline-block;
+		float:right;
+	}
+
+	#entry_btn{
+		font-size: 25px;
+		margin-bottom:5px;
+		margin-right:10px;
+		padding:5px 15px;
+	}
+
+	#edit_page_btn{
+		font-size: 25px;
+		margin-bottom:5px;
+		padding:5px 15px;
+	}
+
+	#update_btn{
+		font-size: 25px;
+		margin-bottom:5px;
+		margin-right:20px;
+		padding:5px 15px;
+	}
+
+	#modify_btn{
+		font-size: 25px;
+		margin-bottom:5px;
+		margin-right:10px;
+		padding:5px 15px;
+	}
+
+	.log_title{
+		background-color:#BBBBBB;
+	}
+
+	#log_display_area{
+		display:inline-block;
+		width:900px;
+		margin-top:10px;
+		margin-right:0px;
+	}
+
+	#log_title_area table{
+		width:auto;
+		border-left : 2px solid #555555;
+		background-color:#FFFFFF;
+	}
+
+	#log_title_area td{
+		padding:5px 10px;
+		text-align:center;
+		border-top : 2px solid #555555;
+		border-right : 2px solid #555555;
+		border-bottom : 2px solid #555555;
+		font-size:15px;
+	}
+
+	#scroll_log_area{
+		max-height:100px;
+		overflow-x: hidden;
+ 		overflow-y: scroll;
+	}
+
+	#scroll_log_area table{
+		width:auto;
+		border-left : 2px solid #555555;
+		background-color:#FFFFFF;
+	}
+
+	#scroll_log_area td{
+		padding:5px 10px;
+		text-align:center;
+		border-bottom : 2px solid #555555;
+		border-right : 2px solid #555555;
+		font-size:15px;
+	}
+
+	#install_software_info_area{
+		display:inline-block;
+		width:700px;
+		max-height:150px;
+		margin-right:0px;
+	}
+
+	#repair_history{
+		display:inline-block;
+		vertical-align:top;
+		margin-top:20px;
+		margin-left:13px;
+		border-top:2px solid #555555;
+		border-right:2px solid #555555;
+		border-bottom:2px solid #555555;
+		background-color:#FFFFFF;
+	}
+
+	#repair_history_title td{
+		padding-top:1px;
+		padding-right:1px;
+		padding-left:1px;
+		height:30px;
+		text-align:center;
+		border-left:2px solid #555555;
+		border-bottom:2px solid #555555;
+	}
+
+	#scroll_repair_history{
+		overflow-x: hidden;
+ 		overflow-y: scroll;
+ 		max-height:99px;
+	}
+
+	#scroll_repair_history td{
+		padding-top:1px;
+		padding-right:1px;
+		padding-left:1px;
+		height:30px;
+		text-align:center;
+		border-left:2px solid #555555;
+	}
+
+	#repair_history input{
+		height:21px;
+	}
+
+	#repair_contents_input{
+		height:26px;
+		width:494px;
+	}
+
+	#repair_contents_display{
+		height:26px;
+		width:500px;
+	}
+
+	#repair_title{
+		background-color:#BBBBBB;
+	}
+
+	.input_size{
+		width:173px;
+	}
+
+
