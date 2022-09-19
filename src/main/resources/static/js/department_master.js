@@ -7,16 +7,12 @@
 			type: "GET",
 			url: `${deparmentPath}/info`,
 			contentType: "application/json",
-			dataType: "json",
-			headers: {
-				"Access-Control-Allow-Origin": "*"
-			},
 			success: function (response) {
 				departments = response;
 				$(".main").html(appendDepartment(response));
 			} 
-		})
-	}
+		});
+	};
 	
 	// Thêm data vào DOM.
 	function appendDepartment(departments) {
@@ -31,11 +27,11 @@
 				</div>`;
 		});
 		return $content;
-	}
+	};
 	
 	function load() {
 		getDepartment();
-	}
+	};
 	
 	function clearInput() {
 		var departmentId = $(".departmentId").val();
@@ -44,7 +40,7 @@
 			$(".departmentName").val("");
 		}
 		return;
-	}
+	};
 	
 	$("#clear").click(function(e) {
 		e.preventDefault();
@@ -54,12 +50,17 @@
 	$("#delete").click(function(e) {
 		e.preventDefault();
 		var departmentId = $(".departmentId").val();
-		if(departmentId) {
-			departments.splice(parseInt(departmentId) - 1, 1);
-			console.log(departmentId);
-			clearInput();
-			$(".main").html(appendDepartment(departments));
-		}
+		$.ajax({
+			type: "DELETE",
+			url: `${deparmentPath}/delete/${departmentId}`,
+			success: function (response) {
+				if(departmentId) {
+					departments.splice(parseInt(departmentId) - 1, 1);
+					clearInput();
+					$(".main").html(appendDepartment(departments));
+				}
+			}
+		});
 	});
 	
 	$("#add-edit").click(function(e) {
@@ -70,12 +71,21 @@
 		var findDepartment = departments.find(function(item) {
 			return item.id === parseInt(departmentId);
 		})
-		
+		var param = {departmentName: departmentName};
 		// Nếu id là empty, null và name là empty thi input
 		if(!departmentId && departmentName !== "") {
-			const department = [{id: departmentId + 1, departmentName: departmentName}];
-			departments.push(department);
-			$(".departmentName").val("");
+			$.ajax({
+				type: "POST",
+				url: `${deparmentPath}/create-department`,
+				contentType: "application/json",
+				data: JSON.stringify(param),
+				success: function (response) {
+					const department = {id: departments.length + 1, departmentName: response.departmentName};
+					departments.push(department);
+					$(".departmentName").val("");
+					$(".main").html(appendDepartment(departments));
+				}
+			});
 		}
 		
 		// Nếu chọn 1 deparment thì lấy thông tin id và name và đối tượng tìm được trong departments rồi edit
@@ -83,8 +93,24 @@
 			findDepartment.departmentName = departmentName;
 			$(".departmentId").val("");
 			$(".departmentName").val("");
+			$.ajax({
+				type: "PUT",
+				url: `${deparmentPath}/edit/${departmentId}`,
+				contentType: "application/json",
+				data: JSON.stringify(param),
+				success: function (response) {
+					for (const item of departments) {
+					  if (item.id === findDepartment.id) {
+					    item.departmentName = response.departmentName;
+					    break;
+					  }
+					}
+					$(".departmentName").val("");
+					$(".main").html(appendDepartment(departments));
+				}
+			});
 		}
-		$(".main").html(appendDepartment(departments));
+		
 	});
 	
 	$(".content-wrapper").on("click", ".selection", function(e) {

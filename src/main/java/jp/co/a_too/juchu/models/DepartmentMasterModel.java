@@ -20,6 +20,13 @@ public class DepartmentMasterModel {
 	@Column(name="department_name")
 	private String departmentName;
 	
+	public DepartmentMasterModel() {
+		
+	}
+	
+	public DepartmentMasterModel(String departmentName) {
+		this.departmentName = departmentName;
+	}
 
 	public int getId() {
 		return id;

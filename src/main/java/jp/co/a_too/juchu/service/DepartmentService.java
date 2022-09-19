@@ -8,14 +8,16 @@ import jp.co.a_too.juchu.models.DepartmentMasterModel;
 public interface DepartmentService {
 	
 	List<DepartmentMasterModel> getAllDepartments();
+	
+	DepartmentMasterModel createNewDepartment(DepartmentMasterModel department);
 	Integer getNextId();
 	
 	void saveDepartment(DepartmentMasterModel department);
 	
 	
 	DepartmentMasterModel getDepartmentById(Integer id);
-	DepartmentMasterModel updateDepartment(DepartmentMasterModel department);
+	Optional<DepartmentMasterModel> updateDepartment(int departmentId, DepartmentMasterModel department);
 	
-	void deleteDepartmentById(Integer id);
+	void deleteDepartmentById(int departmentId);
 	
 }
